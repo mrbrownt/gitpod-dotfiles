@@ -83,3 +83,16 @@ fi
 if command -v bat &>/dev/null; then
   alias cat="bat"
 fi
+
+# NVM setup
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+if command -v nvm &>/dev/null; then
+  nvm use default &>/dev/null
+fi
+
+# Diff so fancy
+if ! command -v diff-so-fancy &>/dev/null; then
+  npm install --global diff-so-fancy
+fi
